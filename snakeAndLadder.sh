@@ -19,8 +19,14 @@ do
 	elif [[ $option -eq 2 ]];
 	then
 		echo "got ladder"
-		player_position=$(($player_position+$dice_roll_val))
-		echo "player at position:$player_position"
+		if [[ $(($player_position+$dice_roll_val)) -gt 100 ]];
+		then
+			player_position=$player_position
+			echo "player at position:$player_position"
+		else
+			player_position=$(($player_position+$dice_roll_val))
+			echo "player at position:$player_position"
+		fi
 	else
 		echo "got snake"
 		player_position=$(($player_position-$dice_roll_val))
