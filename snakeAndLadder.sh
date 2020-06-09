@@ -5,11 +5,13 @@ echo "Welcome to snake and ladder game:"
 echo "================================="
 
 DESTINATION=100
-player_position=0;
+player_position=0
+dice_roll_count=0
 
 while [ $player_position -lt $DESTINATION ]
 do
 	dice_roll_val=$(($(($RANDOM%6))+1));
+	dice_roll_count=$(($dice_roll_count+1))
 	echo "you got $dice_roll_val"
 	option=$(($(($RANDOM%3))+1));
 	if [[ $option -eq 1 ]];
@@ -37,3 +39,6 @@ do
 		echo "player at position:$player_position"
 	fi
 done
+
+echo "================================================"
+echo "you rolled the dice $dice_roll_count times to reach destination"
